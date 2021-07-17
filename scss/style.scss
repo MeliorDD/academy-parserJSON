@@ -4,10 +4,14 @@
     padding: 0;
     
 }
+h1{
+    margin: 0;
+    padding: 0;
+}
 body{
     background: #1D1B26;
     font-family: 'Quicksand', sans-serif;
-    
+    //overflow: hidden;
 }
 .button-add-file{
     height: 100vh;
@@ -52,4 +56,34 @@ body{
             height: 100%;
         }
     }
+}
+
+.form{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: none;
+    h1{
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+        &::first-letter{
+            text-transform: uppercase;
+        }
+    }
+    .fields{
+        display: flex;
+        flex-direction: column;
+        label{
+            margin-bottom: 10px;
+            color: white;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+    }
+}
+.button-add-another-file{
+    display: none;
+
 }
