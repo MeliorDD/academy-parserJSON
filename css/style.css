@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1D1B26;
+  font-family: "Quicksand", sans-serif;
+}
+
+.button-add-file {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.button-add-file #add-file {
+  display: none;
+}
+.button-add-file label {
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 20px 25px;
+  border: 1px solid;
+  -o-border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+     border-image: -webkit-gradient(linear, left top, left bottom, from(#ff3000), color-stop(#ed0200), color-stop(#ff096c), to(#d50082));
+     border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+  border-image-slice: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -webkit-transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.button-add-file label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff3000), color-stop(#ed0200), color-stop(#ff096c), to(#d50082));
+  background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+  -webkit-transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.button-add-file label:hover {
+  background: rgba(255, 255, 255, 0);
+}
+.button-add-file label:hover::before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
