@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
 }
 h1{
     margin: 0;
@@ -11,21 +11,13 @@ h1{
 body{
     background: #1D1B26;
     font-family: 'Quicksand', sans-serif;
-    //overflow: hidden;
+    color: white;
 }
-.button-add-file{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    #add-file{
-        display: none;
-    }
-    label{
-        cursor: pointer;
+
+@mixin button-style{
+    cursor: pointer;
         text-align: center;
         text-decoration: none;
-        color: white;
         display: inline-block;
         position: relative;
         padding: 20px 25px;
@@ -43,7 +35,6 @@ body{
             height: 0;
             width: 100%;
             z-index: -1;
-            color: white;
             background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
             transition: .8s cubic-bezier(.165, .84, .44, 1);
         }
@@ -55,17 +46,28 @@ body{
             top: auto;
             height: 100%;
         }
+}
+
+.button-add-file{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #add-file{
+        display: none;
+    }
+    label{
+        @include button-style();
     }
 }
 
 .form{
     max-width: 1000px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 50px 40px;
     display: none;
     h1{
         text-align: center;
-        color: white;
         margin-bottom: 40px;
         &::first-letter{
             text-transform: uppercase;
@@ -76,14 +78,31 @@ body{
         flex-direction: column;
         label{
             margin-bottom: 10px;
-            color: white;
         }
         input{
             margin-bottom: 20px;
+            padding: 10px 20px;
+            border-radius: 10px; 
         }
+        input[type=file], input[type=color]{
+            padding: 0;
+            border-radius: 0;
+        }
+        
     }
 }
-.button-add-another-file{
-    display: none;
-
+input[type=checkbox]
+{
+    margin-right: 10px;
+}
+.buttons{
+    padding: 30px 0;
+    a{
+       @include button-style();
+       min-width: 100px;
+       padding: 10px 20px;
+       letter-spacing: 0;
+       text-transform: none;
+       margin-right: 20px;
+    }
 }

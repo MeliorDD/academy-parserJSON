@@ -29,7 +29,9 @@ function checkExtension(file){
 function builder(jsonObj){
     let form = document.querySelector(".form")
     form.style.display = "block"
-    document.querySelector(".button-add-file").style.height = "fit-content"
+    button = document.querySelector(".button-add-file")
+    button.style.height = "fit-content"
+    button.style.marginBottom = "50px"
     
     for (let key in jsonObj){
         switch(key){
@@ -72,12 +74,12 @@ function builder(jsonObj){
                                 break
                             case "text without ref":
                                 let spanToAdd = document.createElement("span")
-                                spanToAdd.innerText = item[el]
+                                spanToAdd.innerText = item[el] + " "
                                 references.appendChild(spanToAdd)
                                 break
                             case "text":
                                 let refToAdd = document.createElement("a")
-                                refToAdd.innerText = item.text
+                                refToAdd.innerText = item.text + " " 
                                 refToAdd.setAttribute("href", item.ref) 
                                 references.appendChild(refToAdd)
                                 break
@@ -85,6 +87,18 @@ function builder(jsonObj){
                     }
                 })
                 form.appendChild(references)
+                break
+            case "buttons":
+                let buttons = document.createElement("div")
+                buttons.className = "buttons"
+                jsonObj[key].forEach(item => {
+                    for(let el in item){
+                        let buttonToAdd = document.createElement("a")
+                        buttonToAdd.innerText = item[el]
+                        buttons.appendChild(buttonToAdd)
+                    }
+                })
+                form.appendChild(buttons)
                 break
         }   
     } 
