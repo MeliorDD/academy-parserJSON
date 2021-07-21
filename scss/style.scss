@@ -76,25 +76,40 @@ body{
     .fields{
         display: flex;
         flex-direction: column;
-        label{
-            margin-bottom: 10px;
+        .item-in-fields{
+            display: flex;
+            flex-direction: column;
+            label{
+                margin-bottom: 10px;
+            }
+            input{
+                margin-bottom: 20px;
+                padding: 10px 20px;
+                border-radius: 10px; 
+            }
+            input[type=file], input[type=color]{
+                padding: 0;
+                border-radius: 0;
+            }
         }
-        input{
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            border-radius: 10px; 
+    }
+    .references{
+        a{
+            margin-right: 20px;
         }
-        input[type=file], input[type=color]{
-            padding: 0;
-            border-radius: 0;
-        }
-        
     }
 }
 input[type=checkbox]
 {
     margin-right: 10px;
 }
+.row{
+    flex-direction: row !important;
+    label{
+        margin-right: 20px;
+    }
+}
+  
 .buttons{
     padding: 30px 0;
     a{

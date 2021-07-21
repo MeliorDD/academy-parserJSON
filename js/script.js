@@ -43,19 +43,39 @@ function builder(jsonObj){
             case "fields":
                 let fields = document.createElement("div")
                 fields.className = "fields"
-                jsonObj[key].forEach(item => {
+                jsonObj[key].forEach((item, id) => {
+                    let divToAdd = document.createElement("div")
+                    divToAdd.className = "item-in-fields"
                     if("label" in item){
                         let labelToAdd = document.createElement("label")
                         labelToAdd.innerText = item.label
-                        fields.appendChild(labelToAdd)
+                        divToAdd.appendChild(labelToAdd)
                     }
                     if("input" in item){
                         let inputToAdd = document.createElement("input")
-                        for(let prop in item.input){
-                            inputToAdd.setAttribute(prop, item.input[prop])
+                        if(item.input.type == "technology")
+                        {
+                            inputToAdd.setAttribute("list","technologies")
+                            let dataListToAdd = document.createElement("datalist")
+                            dataListToAdd.id = "technologies"
+                            item.input.technologies.forEach((element) => {
+                                let optionToAdd = document.createElement("option")
+                                optionToAdd.innerText = element
+                                dataListToAdd.appendChild(optionToAdd)
+                            })
+                            divToAdd.appendChild(dataListToAdd)
                         }
-                        fields.appendChild(inputToAdd)
+                        else{
+                            if(item.input.type == "color" || item.input.type == "checkbox"){
+                                divToAdd.className += " row"
+                            }
+                            for(let prop in item.input){
+                                inputToAdd.setAttribute(prop, item.input[prop])
+                            }
+                        }
+                        divToAdd.appendChild(inputToAdd)
                     }
+                    fields.appendChild(divToAdd)
                 })
                 form.appendChild(fields)
                 break
@@ -79,7 +99,7 @@ function builder(jsonObj){
                                 break
                             case "text":
                                 let refToAdd = document.createElement("a")
-                                refToAdd.innerText = item.text + " " 
+                                refToAdd.innerText = item.text 
                                 refToAdd.setAttribute("href", item.ref) 
                                 references.appendChild(refToAdd)
                                 break
@@ -110,3 +130,4 @@ function clearForm(){
         form.removeChild(form.firstChild);
     }
 }
+

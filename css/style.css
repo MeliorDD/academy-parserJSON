@@ -92,21 +92,43 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.form .fields label {
+.form .fields .item-in-fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.form .fields .item-in-fields label {
   margin-bottom: 10px;
 }
-.form .fields input {
+.form .fields .item-in-fields input {
   margin-bottom: 20px;
   padding: 10px 20px;
   border-radius: 10px;
 }
-.form .fields input[type=file], .form .fields input[type=color] {
+.form .fields .item-in-fields input[type=file], .form .fields .item-in-fields input[type=color] {
   padding: 0;
   border-radius: 0;
+}
+.form .references a {
+  margin-right: 20px;
 }
 
 input[type=checkbox] {
   margin-right: 10px;
+}
+
+.row {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+.row label {
+  margin-right: 20px;
 }
 
 .buttons {
